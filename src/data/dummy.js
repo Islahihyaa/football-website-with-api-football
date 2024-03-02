@@ -1,17 +1,11 @@
-import React from "react";
-import {
-  FiShoppingBag,
-  FiEdit,
-  FiPieChart,
-  FiBarChart,
-  FiCreditCard,
-  FiStar,
-  FiShoppingCart,
-} from "react-icons/fi";
+
+
+import { GiTrophyCup } from "react-icons/gi";
 
 export const links = [
   {
     title: "Klasemen",
+    icon: <GiTrophyCup/>,
     links: [
       {
         name: "Liga Inggris",
@@ -41,3 +35,14 @@ export const links = [
     ],
   },
 ];
+
+export const tableHeader = [
+  { title: "Posisi"},
+  { title: "Klub"},
+  { title: "Main"},
+  { title: "Poin"},
+  { title: "Menang"},
+  { title: "Seri"},
+  { title: "Kalah"},
+  { title: "Goal"},
+]
