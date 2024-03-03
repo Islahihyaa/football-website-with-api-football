@@ -1,25 +1,27 @@
 import React from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { IoSearch , IoSettingsOutline } from "react-icons/io5";
+import { useStateContext } from '../contexts/ContextProvider';
 
-const NavButton = ({dotColor, icon}) => (
+const NavButton = ({icon, customFunc}) => (
   <button
     type='button'
-    onClick={()=> {}}
+    onClick={() => customFunc()}
     className='relative text-xl rounded-full p-3 hover:bg-dark-gray'
   >
-    <span
-      style={{background: dotColor}}
-      className='absolute inline-flex rounded-full h-2 w-2 right-2 top-2'
-    />
     {icon}
   </button>
 )
 
 const Navbar = () => {
+
+  const { activeMenu, setActiveMenu } = useStateContext();
+  
+  const handleActiveMenu = () => setActiveMenu(!activeMenu);
+  
   return (
     <div className='flex justify-between p-2 md:mr-6 relative'>
-      <NavButton customFunc={() => {}} icon={<AiOutlineMenu/>} />
+      <NavButton customFunc={handleActiveMenu} icon={<AiOutlineMenu/>} />
       <div>
         <NavButton customFunc={() => {}} icon={<IoSearch/>}/>
         <NavButton customFunc={() => {}} icon={<IoSettingsOutline/>}/>
