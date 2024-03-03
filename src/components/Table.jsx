@@ -12,7 +12,7 @@ const Table = ({leagueId}) => {
                 const result = await getStandings(leagueId);
                 setStandings(result);
             } catch (error) {
-                console.error("Error fetching countries:", error);
+                console.error("Error fetching data:", error);
             }
         }
         fetchStandings()
@@ -20,24 +20,24 @@ const Table = ({leagueId}) => {
 
   return (
       <table className='table-auto border-collapse w-full '>
-        <thead className='bg-gray-800 text-white '>
+        <thead className='bg-blue-950 text-white'>
           <tr>
             {tableHeader.map((item) => (
-                <th key={item.title} className='p-2'>{item.title}</th>
+                <th key={item.title} className='p-2 text-xl font-semibold text-center'>{item.title}</th>
             ))}
           </tr>
         </thead>
         <tbody>
             {standings.map((team, index) => (
-                <tr key={team.team_id} className='border'>
-                    <td className='py-2'>{index + 1}</td>
-                    <td className='py-2'>{team.team_name}</td>
-                    <td className='py-2'>{team.overall_league_payed}</td>
-                    <td className='py-2'>{team.overall_league_PTS}</td>
-                    <td className='py-2'>{team.overall_league_W}</td>
-                    <td className='py-2'>{team.overall_league_D}</td>
-                    <td className='py-2'>{team.overall_league_L}</td>
-                    <td className='py-2'>{team.overall_league_GF}</td>
+                <tr key={team.team_id} className='border text-lg text-center'>
+                    <td className='p-2'>{index + 1}</td>
+                    <td className='p-2 flex items-center gap-2'><img src={team.team_badge} alt="Logo Team" className='w-10 h-10' />{team.team_name}</td>
+                    <td className='p-2'>{team.overall_league_payed}</td>
+                    <td className='p-2'>{team.overall_league_PTS}</td>
+                    <td className='p-2'><span className='bg-[#1CD42E] rounded-full text-white py-2 px-4'>{team.overall_league_W}</span></td>
+                    <td className='p-2'><span className='bg-[#B1B1B1] rounded-full text-white py-2 px-4'>{team.overall_league_D}</span></td>
+                    <td className='p-2'><span className='bg-[#E55454] rounded-full text-white py-2 px-4'>{team.overall_league_L}</span></td>
+                    <td className='p-2'>{team.overall_league_GF}</td>
                 </tr>
             ))}
         </tbody>

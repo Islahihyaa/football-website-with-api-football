@@ -8,10 +8,22 @@ export const getStandings = async (leagueId) => {
     const response = await axios.get(
       `${BASE_URL}?action=get_standings&league_id=${leagueId}&APIkey=${API_KEY}`
     );
-    return response.data
+    return response.data;
   } catch (error) {
     console.error("Error fetching countries:", error);
     throw error;
   }
 };
 
+export const getPlayers = async (leagueId) => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}?action=get_topscorers&league_id=${leagueId}&APIkey=${API_KEY}`
+    );
+    console.log(response.data)
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching countries:", error);
+    throw error;
+  }
+};

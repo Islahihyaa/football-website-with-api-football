@@ -1,15 +1,15 @@
 import React from 'react';
 import { Header, PlayersCard, Table } from '../components';
-import {LogoInggris} from "../data/dummy"
+import { LogoJerman } from '../data/dummy';
 
-const EnglishLeague = () => {
+const GermanLeague = () => {
   
-  const leagueId = 152;
+  const leagueId = 175;
 
   return (
     <div className='flex'>
       <div className='mx-4 my-16 p-2 md:p-10 bg-white rounded-xl w-3/5'>
-        <Header img={LogoInggris} category="League" title="Inggris"/>
+        <Header img={LogoJerman} category="League" title="Jerman"/>
         <Table leagueId={leagueId}/>
       </div>
       <div className='mx-4 my-16 p-2 md:p-10 bg-white rounded-xl w-2/5'>
@@ -17,7 +17,8 @@ const EnglishLeague = () => {
         <PlayersCard leagueId={leagueId}/>
       </div>
     </div>
+
   )
 }
 
-export default EnglishLeague;
+export default GermanLeague;
